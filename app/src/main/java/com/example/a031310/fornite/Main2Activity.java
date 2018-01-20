@@ -121,7 +121,7 @@ public class Main2Activity extends Activity {
             try {
                 Document document = Jsoup.connect("https://www.stormshield.one/pvp/stats/" + nickname).get();
 
-                SystemClock.sleep(5000);
+
 
                 Element verificar = document.select("body > div.alerts-row.pvp > div > div > div > div > h2").first();
 
