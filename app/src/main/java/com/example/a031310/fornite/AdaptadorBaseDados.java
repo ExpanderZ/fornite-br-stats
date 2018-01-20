@@ -61,5 +61,10 @@ public class AdaptadorBaseDados {
         return database.insert("players", null, contentValues);
     }
 
+    public void deletePlayer(String nickname) {
+        String query = "DELETE FROM players WHERE nickName = '" + nickname + "';";
+        database.execSQL(query);
+    }
+
 
 }

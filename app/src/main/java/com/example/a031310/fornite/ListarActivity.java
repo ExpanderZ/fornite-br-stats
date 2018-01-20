@@ -47,8 +47,10 @@ public class ListarActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        mudarDeEcra(Main2Activity.class, nicknames.get(position));
+        mudarDeEcra(Main3Activity.class, nicknames.get(position));
     }
+
+    
 
     private void mudarDeEcra(Class<?> subAtividade, String nickname) {
         Intent x = new Intent(this, subAtividade);
