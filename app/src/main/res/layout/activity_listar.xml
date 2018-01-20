@@ -5,11 +5,22 @@
     android:layout_height="match_parent"
     tools:context=".ListarActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/fortnite_favorites"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
     <ListView
         android:id="@android:id/list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp" />
+        android:layout_marginTop="52dp"
+        android:textColor="#FFF"/>
+
+
 </RelativeLayout>
