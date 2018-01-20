@@ -19,7 +19,7 @@ public class Main2Activity extends Activity {
     protected TextView textViewName, textViewLife, WinsLF, Wins, KillsLF, Kills, KDLF, winperLF, KillsKD,  MatchesLF, Matches, WinPercentage, Solo, WinsSolo1, WinsSolo, MatchesSolo, MatchesSolo1, KillsSolo,KillsSolo1, KillsKDSolo, KDSolo1, WinPercentageSolo, WinPercentageSolo1 ,Duo,
             WinsDuo, WinsDuo1, MatchesDuo, MatchesDuo1, KillsDuo, KillsDuo1, KillsKDDuo, KDDuo1, WinPercentageDuo, WinPercentageDuo1, Squad, WinsSquad, WinsSquad1, MatchesSquad, MatchesSquad1, KillsSquad,  KillsSquad1, KillsKDSquad, KDSquad1, WinPercentageSquad, WinPercentageSquad1;
     protected String nickname;
-    protected Button button;
+    protected Button addPlayer;
     protected AdaptadorBaseDados a;
     List<String> nickNames;
     List<Integer> ids;
@@ -94,7 +94,7 @@ public class Main2Activity extends Activity {
         KDSolo1 = (TextView) findViewById(R.id.KDSolo1);
         WinPercentageSolo1 = (TextView) findViewById(R.id. WinPercentageSolo1 );
 
-
+        addPlayer = (Button) findViewById(R.id.addPlayer);
         Intent x = getIntent();
         nickname = x.getStringExtra("aTag");
 
