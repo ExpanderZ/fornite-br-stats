@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nuno Botelho\.android\build-cache\0042c59dbda8fe07d65d524bf1cdcd48a5f0faac\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\Users\Nuno Botelho\Downloads\fornite-br-stats\app\build\intermediates\pre-dexed\debug\classes_b0d525af3fe22be0e204bb3766189d784e2e9b58.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nuno Botelho\Downloads\fornite-br-stats\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\Nuno Botelho\Downloads\fornite-br-stats\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c795361da002062c8c876378f29c5453738f5290\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nuno Botelho\AppData\Local\Android\Sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\Users\Nuno Botelho\Downloads\fornite-br-stats\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.2_3040533e25cd2934ed150950abaaa6355f21d09a.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Nuno Botelho\Downloads\fornite-br-stats\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ea2e71347608ee4c88ae6ac9dab0b68ecdf0581c">
+        <dex dex="C:\Users\Nuno Botelho\Downloads\fornite-br-stats\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_fa8f8f611eb5840f065a8319e5870da52beba5db\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nuno Botelho\.gradle\caches\modules-2\files-2.1\org.jsoup\jsoup\1.10.3\b842f960942503cf1abbcc8c173a7f2c19d43726\jsoup-1.10.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b842f960942503cf1abbcc8c173a7f2c19d43726">
+        <dex dex="C:\Users\Nuno Botelho\Downloads\fornite-br-stats\app\build\intermediates\pre-dexed\debug\jsoup-1.10.3_3cbe195b589e6805b51734a994ac73e659414914.jar" />
+    </item>
+
+</items>

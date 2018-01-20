@@ -37,8 +37,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = (TextView) findViewById(R.id.textView);
-        textView2 = (TextView) findViewById(R.id.textView2);
+
         editText = (EditText) findViewById(R.id.editText);
         buttonS = (Button) findViewById(R.id.buttonS);
         buttonL = (Button) findViewById(R.id.buttonL);
