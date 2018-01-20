@@ -9,12 +9,12 @@ O objetivo da aplicação consiste em permitir ao utilizador poder ter acesso a 
 
 Lista de jogadores a procurar:
 
-ExpanderZ
-Chry311
-JonnyBGod23
-RonaldVos
-Malgorio
-SpritzeN
+ExpanderZ,
+Chry311,
+JonnyBGod23,
+RonaldVos,
+Malgorio,
+SpritzeN.
 
 Nota: Devido ao site estar em constante update dos jogadores é preciso escrever o Nome, fazer Search, voltar atrás e fazer search denovo. Sempre que é procurado um jogador, o site faz update a esse jogador,
 por vezes os dados são logo recebidos, outras vezes é preciso voltar atrás e fazer search de novo.
