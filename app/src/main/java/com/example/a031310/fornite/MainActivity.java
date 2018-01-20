@@ -27,6 +27,11 @@ public class MainActivity extends Activity {
         startActivity(x);
     }
 
+    private void mudarDeEcra(Class<?> subAtividade) {
+        Intent x = new Intent(this, subAtividade);
+        startActivity(x);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,15 +49,14 @@ public class MainActivity extends Activity {
                 mudarDeEcra(Main2Activity.class, editText.getText().toString());
 
 
-
             }
         });
 
-        buttonL.setOnClickListener(new Button.OnClickListener(){@Override
-          public void onClick(View view) {
-              mudarDeEcra(ListarActivity.class, editText.getText().toString());
-
-           }
+        buttonL.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mudarDeEcra(ListarActivity.class);
+            }
         });
 
     }

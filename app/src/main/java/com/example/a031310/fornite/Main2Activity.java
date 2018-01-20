@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
+import android.os.SystemClock;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -16,8 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main2Activity extends Activity {
-    protected TextView textViewName, textViewLife, WinsLF, Wins, KillsLF, Kills, KDLF, winperLF, KillsKD,  MatchesLF, Matches, WinPercentage, Solo, WinsSolo1, WinsSolo, MatchesSolo, MatchesSolo1, KillsSolo,KillsSolo1, KillsKDSolo, KDSolo1, WinPercentageSolo, WinPercentageSolo1 ,Duo,
-            WinsDuo, WinsDuo1, MatchesDuo, MatchesDuo1, KillsDuo, KillsDuo1, KillsKDDuo, KDDuo1, WinPercentageDuo, WinPercentageDuo1, Squad, WinsSquad, WinsSquad1, MatchesSquad, MatchesSquad1, KillsSquad,  KillsSquad1, KillsKDSquad, KDSquad1, WinPercentageSquad, WinPercentageSquad1;
+    protected TextView textViewName, textViewLife, WinsLF, Wins, KillsLF, Kills, KDLF, winperLF, KillsKD, MatchesLF, Matches, WinPercentage, Solo, WinsSolo1, WinsSolo, MatchesSolo, MatchesSolo1, KillsSolo, KillsSolo1, KillsKDSolo, KDSolo1, WinPercentageSolo, WinPercentageSolo1, Duo,
+            WinsDuo, WinsDuo1, MatchesDuo, MatchesDuo1, KillsDuo, KillsDuo1, KillsKDDuo, KDDuo1, WinPercentageDuo, WinPercentageDuo1, Squad, WinsSquad, WinsSquad1, MatchesSquad, MatchesSquad1, KillsSquad, KillsSquad1, KillsKDSquad, KDSquad1, WinPercentageSquad, WinPercentageSquad1;
     protected String nickname;
     protected Button addPlayer;
     protected AdaptadorBaseDados a;
@@ -28,7 +31,7 @@ public class Main2Activity extends Activity {
 
     String nome, winsLF, matchesLF, killsLF, kdLF, winperlf, winssolo, killssolo, matchessolo, kdsolo, winpersolo, winsduo, killsduo, matchesduo, kdduo, winperduo, winssquad, killssquad, kdsquad, winpersquad, matchessquad;
 
-    protected void onStart(){
+    protected void onStart() {
         super.onStart();
         a = new AdaptadorBaseDados(this).open();
 
@@ -37,7 +40,7 @@ public class Main2Activity extends Activity {
 
     }
 
-    protected void onStop(){
+    protected void onStop() {
         super.onStop();
         a.close();
     }
@@ -92,32 +95,37 @@ public class Main2Activity extends Activity {
         KillsSolo1 = (TextView) findViewById(R.id.KillsSolo1);
         MatchesSolo1 = (TextView) findViewById(R.id.MatchesSolo1);
         KDSolo1 = (TextView) findViewById(R.id.KDSolo1);
-        WinPercentageSolo1 = (TextView) findViewById(R.id. WinPercentageSolo1 );
+        WinPercentageSolo1 = (TextView) findViewById(R.id.WinPercentageSolo1);
 
         addPlayer = (Button) findViewById(R.id.addPlayer);
         Intent x = getIntent();
         nickname = x.getStringExtra("aTag");
 
 
-        activity=this;
+        activity = this;
+
+        textViewName.setText(nickname);
 
         backgroundTask = new AsyncGenerator();
         backgroundTask.execute();
     }
 
-    private final class AsyncGenerator extends AsyncTask<Void,Void,Void> {
+    private final class AsyncGenerator extends AsyncTask<Void, Void, Void> {
         boolean error;
-        public AsyncGenerator (){
+
+        public AsyncGenerator() {
 
         }
 
-        protected Void doInBackground (Void... args){
+        protected Void doInBackground(Void... args) {
             try {
-                Document document = Jsoup.connect("https://www.stormshield.one/pvp/stats/"+nickname).get();
+                Document document = Jsoup.connect("https://www.stormshield.one/pvp/stats/" + nickname).get();
+
+                SystemClock.sleep(5000);
 
                 Element verificar = document.select("body > div.alerts-row.pvp > div > div > div > div > h2").first();
 
-                if (verificar == null){
+                if (verificar == null) {
                     error = true;
                 } else {
                     nome = document.select("body > div.alerts-row.pvp > div > div > div > div > h2").text();
@@ -136,10 +144,10 @@ public class Main2Activity extends Activity {
                     matchesduo = document.select("body > div.container.pvp > div:nth-child(1) > div.col-12.col-md-8 > div:nth-child(1) > div:nth-child(3) > div > div.post > div:nth-child(3) > div:nth-child(5) > div > a > div.stat__value").text();
                     kdduo = document.select("body > div.container.pvp > div:nth-child(1) > div.col-12.col-md-8 > div:nth-child(1) > div:nth-child(3) > div > div.post > div:nth-child(3) > div:nth-child(2) > div > a > div.stat__value").text();
                     winperduo = document.select("body > div.container.pvp > div:nth-child(1) > div.col-12.col-md-8 > div:nth-child(1) > div:nth-child(3) > div > div.post > div:nth-child(3) > div:nth-child(6) > div > a > div.stat__value").text();
-                    winssquad  = document.select("body > div.container.pvp > div:nth-child(1) > div.col-12.col-md-8 > div:nth-child(1) > div:nth-child(4) > div > div.post > div:nth-child(2) > div:nth-child(2) > a > div.istat__value").text();
-                    killssquad  = document.select("body > div.container.pvp > div:nth-child(1) > div.col-12.col-md-8 > div:nth-child(1) > div:nth-child(4) > div > div.post > div:nth-child(3) > div:nth-child(1) > div > a > div.stat__value").text();
-                    matchessquad  = document.select("body > div.container.pvp > div:nth-child(1) > div.col-12.col-md-8 > div:nth-child(1) > div:nth-child(4) > div > div.post > div:nth-child(3) > div:nth-child(5) > div > a > div.stat__value").text();
-                    kdsquad  = document.select("body > div.container.pvp > div:nth-child(1) > div.col-12.col-md-8 > div:nth-child(1) > div:nth-child(4) > div > div.post > div:nth-child(3) > div:nth-child(2) > div > a > div.stat__value").text();
+                    winssquad = document.select("body > div.container.pvp > div:nth-child(1) > div.col-12.col-md-8 > div:nth-child(1) > div:nth-child(4) > div > div.post > div:nth-child(2) > div:nth-child(2) > a > div.istat__value").text();
+                    killssquad = document.select("body > div.container.pvp > div:nth-child(1) > div.col-12.col-md-8 > div:nth-child(1) > div:nth-child(4) > div > div.post > div:nth-child(3) > div:nth-child(1) > div > a > div.stat__value").text();
+                    matchessquad = document.select("body > div.container.pvp > div:nth-child(1) > div.col-12.col-md-8 > div:nth-child(1) > div:nth-child(4) > div > div.post > div:nth-child(3) > div:nth-child(5) > div > a > div.stat__value").text();
+                    kdsquad = document.select("body > div.container.pvp > div:nth-child(1) > div.col-12.col-md-8 > div:nth-child(1) > div:nth-child(4) > div > div.post > div:nth-child(3) > div:nth-child(2) > div > a > div.stat__value").text();
                     winpersquad = document.select("body > div.container.pvp > div:nth-child(1) > div.col-12.col-md-8 > div:nth-child(1) > div:nth-child(4) > div > div.post > div:nth-child(3) > div:nth-child(6) > div > a > div.stat__value").text();
                 }
 
@@ -179,6 +187,13 @@ public class Main2Activity extends Activity {
             MatchesSquad1.setText("" + matchessquad);
             KDSquad1.setText("" + kdsquad);
             WinPercentageSquad1.setText("" + winpersquad);
+
+            addPlayer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    a.inserirDados(nome, winsLF);
+                }
+            });
 
         }
     }
