@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.a031310.fornite">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +20,10 @@
         </activity>
         <activity
             android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"></activity>
+            android:label="@string/title_activity_main2" />
+        <activity
+            android:name=".ListarActivity"
+            android:label="@string/title_activity_listar"></activity>
     </application>
 
 </manifest>

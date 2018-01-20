@@ -36,14 +36,23 @@ public class MainActivity extends Activity {
         textView2 = (TextView) findViewById(R.id.textView2);
         editText = (EditText) findViewById(R.id.editText);
         buttonS = (Button) findViewById(R.id.buttonS);
-
+        buttonL = (Button) findViewById(R.id.buttonL);
 
         buttonS.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mudarDeEcra(Main2Activity.class, editText.getText().toString());
 
+
+
             }
+        });
+
+        buttonL.setOnClickListener(new Button.OnClickListener(){@Override
+          public void onClick(View view) {
+              mudarDeEcra(ListarActivity.class, editText.getText().toString());
+
+           }
         });
 
     }

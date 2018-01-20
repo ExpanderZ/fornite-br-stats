@@ -29,60 +29,29 @@ public class AdaptadorBaseDados {
 
     private Cursor obterTodosRegistos() {
         String[] colunas = new String[2];
-        colunas[0] = "playerTag";
-        colunas[1] = "name";
+        colunas[0] = "nickName";
+        colunas[1] = "winstotal";
         return database.query("players", colunas, null, null, null, null, null);
     }
 
-    public List<String> obterTodosNames() {
-        ArrayList<String> names = new ArrayList<String>();
-        Cursor cursor = obterTodosRegistos();
-        if (cursor.moveToFirst()) {
-            do {
-                names.add(cursor.getString(1));
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        return names;
-    }
 
-    public List<String> obterTodasTags() {
-        ArrayList<String> tags = new ArrayList<String>();
-        Cursor cursor = obterTodosRegistos();
-        if (cursor.moveToFirst()) {
-            do {
-                tags.add(cursor.getString(0));
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        return tags;
-    }
 
-    public int obterTodosCampos(List<Integer> osIds, List<String> osPlayerTag, List<String> osName) {
+    public int obterTodosCampos(List<Integer> ids, List<String> nickName, List<String> winstotal) {
         String[] colunas = new String[23];
         colunas[0] = "_id";
-        colunas[1] = "playerTag";
-        colunas[2] = "name";
+        colunas[1] = "nickName";
+        colunas[2] = "winstotal";
         Cursor c = database.query("players", colunas, null, null, null, null, null);
         if (c.moveToFirst()) {
             do {
-                osIds.add(c.getInt(0));
-                osPlayerTag.add(c.getString(1));
-                osName.add(c.getString(2));
+                ids.add(c.getInt(0));
+                nickName.add(c.getString(1));
+                winstotal.add(c.getString(2));
             } while (c.moveToNext());
         }
         c.close();
-        return osIds.size();
+        return ids.size();
     }
 
-    public long insertPlayerTagName(String aPlayerTag, String oName) {
-        ContentValues values = new ContentValues() ;
-        values.put("playerTag", aPlayerTag);
-        values.put("name", oName);
-        return database.insert("players", null, values);
-    }
 
-    public int deletePlayerTagName(Integer _id) {
-        return database.delete("players", "_id", new String[]{_id.toString()});
-    }
 }

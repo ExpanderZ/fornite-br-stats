@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
     public class AjudaUsoBaseDados extends SQLiteOpenHelper {
-        private static final String DATABASE_NAME = "base-dados.db";
+        private static final String DATABASE_NAME = "players.db";
         private static final int VERSION = 1;
         public AjudaUsoBaseDados(Context context) {
             super(context, DATABASE_NAME, null, VERSION);
@@ -18,7 +18,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            String s = "CREATE TABLE players(_id integer primary key autoincrement, playerNickname varchar(40), name varchar(40))";
+            String s = "CREATE TABLE players(_id integer primary key autoincrement, nickName varchar(40), winstotal varchar(40))";
             db.execSQL(s);
         }
 
