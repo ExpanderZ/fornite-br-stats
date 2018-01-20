@@ -1,7 +1,9 @@
 package com.example.a031310.fornite;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -9,7 +11,21 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
     protected TextView textView, textView2;
     protected EditText editText;
-    protected Button button;
+    protected Button buttonS, buttonL;
+
+    protected void onStart() {
+        super.onStart();
+    }
+
+    protected void onStop() {
+        super.onStop();
+    }
+
+    private void mudarDeEcra(Class<?> subAtividade, String tag) {
+        Intent x = new Intent(this, subAtividade);
+        x.putExtra("aTag", tag);
+        startActivity(x);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +34,18 @@ public class MainActivity extends Activity {
 
         textView = (TextView) findViewById(R.id.textView);
         textView2 = (TextView) findViewById(R.id.textView2);
-        editText = (EditText) findViewById(R.id.editText;
-        button = (Button) findViewById(R.id.button);
+        editText = (EditText) findViewById(R.id.editText);
+        buttonS = (Button) findViewById(R.id.buttonS);
+
+
+        buttonS.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mudarDeEcra(Main2Activity.class, editText.getText().toString());
+
+            }
+        });
+
     }
+
 }
